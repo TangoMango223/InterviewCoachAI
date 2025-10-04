@@ -1,0 +1,8 @@
+# backend built via Python and FastAPI.
+# Goal is to move onto Akka and Java later on. For now, we use Python.
+
+fastapi==0.115.0
+uvicorn==0.30.6
+python-multipart==0.0.9
+jinja2==3.1.4
+openai
