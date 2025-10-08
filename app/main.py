@@ -14,6 +14,12 @@ load_dotenv(override=True)
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 client = OpenAI(api_key=OPENAI_API_KEY)
 
+# Validate prompt is ASCII-only on startup
+try:
+    SYSTEM_PROMPT.encode('ascii')
+except UnicodeEncodeError as e:
+    raise RuntimeError(f"SYSTEM_PROMPT contains non-ASCII characters: {e}. Please use only straight quotes and ASCII characters.")
+
 # Initialize FASTAPI app FOR BACKEND
 app = FastAPI()
 

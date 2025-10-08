@@ -1,0 +1,47 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+
+# Environment variables (use K8s secrets instead)
+.env
+.env.*
+
+# Git
+.git/
+.gitignore
+.gitattributes
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Documentation
+*.md
+CLAUDE.md
+deployment-howto.md
+
+# Node modules (will be installed fresh in Docker)
+node_modules/
+
+# Build artifacts (will be generated in Docker)
+web/dist/
+app/static/
+
+# Kubernetes manifests (not needed in image)
+k8s-*.yaml
+*.yaml
+
+# macOS
+.DS_Store
+
+# Misc
+*.log

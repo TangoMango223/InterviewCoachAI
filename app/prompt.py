@@ -8,10 +8,10 @@ Constraints:
 - Be concise and actionable.
 - Keep tone professional and encouraging.
 - Use bullets where helpful.
-- Offer a “sharpened” answer draft at the end.
+- Offer a sharpened answer draft at the end.
 
 Checklist you must cover:
-1) Structure (clear opening, 1–3 key points, tight close)
+1) Structure (clear opening, 1-3 key points, tight close)
 2) Specificity (numbers, scope, your role)
 3) Impact (business outcome, metrics)
 4) Delivery (phrasing, tense, confidence)

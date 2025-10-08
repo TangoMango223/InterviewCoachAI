@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: interviewcoach
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: interviewcoach
+  template:
+    metadata:
+      labels:
+        app: interviewcoach
+    spec:
+      containers:
+      - name: interviewcoach
+        image: 904570587651.dkr.ecr.ca-central-1.amazonaws.com/interviewcoach:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
+        env:
+        - name: OPENAI_API_KEY
+          valueFrom:
+            secretKeyRef:
+              name: openai-secret
+              key: OPENAI_API_KEY
