@@ -1,5 +1,7 @@
 # syntax=docker/dockerfile:1
 
+###### You only need to copy two folders for this Docker build - app/ and web/ ######
+
 ######## 1) Build the React frontend ########
 FROM node:20-alpine AS webbuild
 WORKDIR /web

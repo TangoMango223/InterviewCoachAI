@@ -1,0 +1,56 @@
+# values.yaml - Default values for the InterviewCoach Helm chart
+# This is the production configuration. Override these values for dev/staging.
+
+# Number of pod replicas to run
+replicaCount: 1
+
+# Docker image configuration
+image:
+  repository: 904570587651.dkr.ecr.ca-central-1.amazonaws.com/interviewcoach
+  tag: "latest"  # Override with specific version tags in production
+  pullPolicy: Always  # Always pull to get latest image
+
+# Service configuration
+service:
+  type: LoadBalancer  # Creates an AWS LoadBalancer
+  port: 80            # External port (what users hit)
+  targetPort: 8080    # Internal container port
+
+# OpenAI API Key configuration
+openai:
+  # SECURITY: Never commit the actual API key to git!
+  # Pass it via --set flag or use a separate secrets file
+  apiKey: ""  # Empty by default, must be provided at install time
+
+  # Alternatively, you can reference an existing secret:
+  # existingSecret: "my-existing-openai-secret"
+  # existingSecretKey: "OPENAI_API_KEY"
+
+# Resource limits and requests (optional, but recommended for production)
+resources:
+  limits:
+    cpu: 500m      # Maximum CPU (0.5 cores)
+    memory: 512Mi  # Maximum memory
+  requests:
+    cpu: 250m      # Minimum CPU guaranteed
+    memory: 256Mi  # Minimum memory guaranteed
+
+# Autoscaling (optional - for future expansion)
+autoscaling:
+  enabled: false
+  minReplicas: 2
+  maxReplicas: 5
+  targetCPUUtilizationPercentage: 80
+
+# Health check configuration
+healthCheck:
+  enabled: true
+  path: /health
+  initialDelaySeconds: 10  # Wait 10s before first health check
+  periodSeconds: 30        # Check every 30s
+
+# Environment-specific labels
+labels:
+  environment: production
+  team: learning
+  project: interviewcoach

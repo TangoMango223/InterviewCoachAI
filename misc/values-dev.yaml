@@ -1,0 +1,44 @@
+# values-dev.yaml - Development environment overrides
+# Use: helm install interviewcoach ./helm-chart -f values-dev.yaml
+
+# Run only 1 replica in dev to save resources
+replicaCount: 2
+
+# Use latest tag in dev for rapid iteration
+image:
+  tag: "latest"
+  pullPolicy: Always
+
+# Use ClusterIP in dev (no LoadBalancer needed)
+# Access via kubectl port-forward instead
+service:
+  type: ClusterIP
+  port: 8080
+  targetPort: 8080
+
+# Lower resource limits for local development
+resources:
+  limits:
+    cpu: 200m
+    memory: 256Mi
+  requests:
+    cpu: 100m
+    memory: 128Mi
+
+# Autoscaling disabled in dev
+autoscaling:
+  enabled: false
+
+# Environment labels
+labels:
+  environment: development
+  team: learning
+  project: interviewcoach
+
+# Node Affinity/Selector for dev environment
+nodeSelector:
+  environment: staging
+
+# OpenAI key - still needs to be provided via --set
+openai:
+  apiKey: ""

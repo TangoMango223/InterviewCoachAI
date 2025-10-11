@@ -1,0 +1,41 @@
+replicaCount: 3
+
+image:
+  tag: "latest"
+  pullPolicy: Always   # use Always when you deploy :latest
+
+service:
+  type: LoadBalancer
+  port: 80
+  targetPort: 8080
+
+resources:
+  limits:
+    cpu: 500m
+    memory: 512Mi
+  requests:
+    cpu: 200m
+    memory: 256Mi
+
+autoscaling:
+  enabled: true
+  minReplicas: 1
+  maxReplicas: 1
+  targetCPUUtilizationPercentage: 75
+
+healthCheck:
+  enabled: true
+  path: /health
+  initialDelaySeconds: 15
+  periodSeconds: 20
+
+labels:
+  environment: production
+  team: learning
+  project: interviewcoach
+
+# remove or empty this to allow scheduling across nodes
+nodeSelector: {}
+
+openai:
+  apiKey: ""

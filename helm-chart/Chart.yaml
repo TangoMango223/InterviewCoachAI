@@ -1,0 +1,29 @@
+# Chart.yaml - Metadata about your Helm chart
+apiVersion: v2
+name: interviewcoach
+description: AI-powered interview coaching application using OpenAI GPT
+type: application
+
+# This is the chart version. This version number should be incremented each time you make changes
+# to the chart and its templates, including the app version.
+version: 1.0.0
+
+# This is the version of the application being deployed.
+# This should match your Docker image tag version.
+appVersion: "1.0.0"
+
+keywords:
+  - ai
+  - interview
+  - coaching
+  - openai
+  - fastapi
+  - react
+
+maintainers:
+  - name: Christine Tang
+    email: tang.c.christine@gmail.com  # Update this with your email
+
+home: https://github.com/TangoMango223/InterviewCoachAI
+sources:
+  - https://github.com/TangoMango223/InterviewCoachAI

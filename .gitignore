@@ -1,3 +1,23 @@
 .env
 CLAUDE.md
 venv/
+
+# Helm chart - only ignore sensitive values files
+helm-chart/values-secrets.yaml
+helm-chart/values-*.local.yaml
+
+# Node modules
+node_modules/
+web/dist/
+app/static/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
