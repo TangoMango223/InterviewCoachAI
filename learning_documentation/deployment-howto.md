@@ -676,3 +676,20 @@ For detailed Helm chart documentation, see [helm-chart/README.md](helm-chart/REA
 # Manual kubectl Deployment
 
 This is the original deployment method. Good for learning Kubernetes basics, but Helm is recommended for production use.
+
+
+-----
+# Build the image
+docker build --platform linux/amd64 -t interviewcoach:v1.0.1 .
+
+# Tag with ECR URI
+docker tag interviewcoach:v1.0.1 \
+  904570587651.dkr.ecr.ca-central-1.amazonaws.com/interviewcoach:v1.0.1
+
+# (Optional) also tag as latest
+docker tag interviewcoach:v1.0.1 \
+  904570587651.dkr.ecr.ca-central-1.amazonaws.com/interviewcoach:latest
+
+# Push both
+docker push 904570587651.dkr.ecr.ca-central-1.amazonaws.com/interviewcoach:v1.0.1
+docker push 904570587651.dkr.ecr.ca-central-1.amazonaws.com/interviewcoach:latest
